@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list>
-    <div *ngFor="let message of messages">
+    <div *ngFor="let message of this.messageService.messages">
       <ion-item *ngIf="username === message.username" class="owner">
         <p class="chat-text" item-left>
           <strong>{{message.username}} :</strong>

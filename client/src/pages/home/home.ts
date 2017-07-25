@@ -11,7 +11,6 @@ import { MessageService } from '../../services/messageService';
 export class HomePage {
   @ViewChild(Content) content: Content;
 
-  messages: any[] = [];
   socket: any;
   connection: any;
   chat: any;
@@ -36,12 +35,6 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.connection = this.messageService.getMessages(this.socket).subscribe(message => {
-      this.messages.push(message);
-    })
-  }
-
-  ngOnDestroy() {
-    this.connection.unsubscribe();
+    this.connection = this.messageService.getMessages(this.socket)
   }
 }
