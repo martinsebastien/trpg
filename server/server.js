@@ -2,9 +2,10 @@ let app = require('express')()
 let http = require('http').Server(app)
 let io = require('socket.io')(http)
 let r = require('rethinkdb')
+let DataBase = require('./game/models/db') 
 let GameServer = require('./game/gameServer')
 
-var db = r.connect({ host: 'localhost', port: 28015 })
+let db = new DataBase(r, io)
 
 let gameServer = new GameServer(io, db)
 gameServer.start()

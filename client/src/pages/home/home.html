@@ -1,47 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <ion-input [(ngModel)]='username' placeholder='Username'></ion-input>
+      Connection
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <div *ngFor="let message of this.messageService.messages">
-      <ion-item *ngIf="username === message.username" class="owner">
-        <p class="chat-text" item-left>
-          <strong>{{message.username}} :</strong>
-          {{message.message}}
-        </p>
-        <p class="chat-time" item-right>
-          {{message.date | date}}
-        </p>
-      </ion-item>
-
-      <ion-item *ngIf="username !== message.username" class="outsider">
-        <p class="chat-text" item-left>
-          <strong>{{message.username}} :</strong>
-          {{message.message}}
-        </p>
-        <p class="chat-time" item-right>
-          {{message.date | date}}
-        </p>
-      </ion-item>
-    </div>
-  </ion-list>
+    <ion-input [(ngModel)]='pseudo' placeholder='Pseudo'></ion-input>
+    <ion-input [(ngModel)]='password' type='password' placeholder='Password'></ion-input>
+    <button (click)="signIn()" ion-button color="light">SIGN IN</button>
 </ion-content>
-<ion-footer>
-  <form #f="ngForm">
-    <ion-grid>
-      <ion-row>
-        <ion-col width-80>
-          <ion-input [(ngModel)]="chat" name="textChat" required placeholder="Type your text here ..."></ion-input>
-        </ion-col>
-        <ion-col width-20 center>
-          <button (click)="chatSend(f.value, f.valid)" ion-button color="light" full [disabled]="f.valid !== true">SEND</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
-</ion-footer>

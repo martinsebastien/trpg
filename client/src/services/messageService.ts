@@ -1,6 +1,3 @@
-import { Observable } from 'rxjs/Observable';
-import * as io from 'socket.io-client';
-
 export class MessageService {
     messages: any[] = [];
 

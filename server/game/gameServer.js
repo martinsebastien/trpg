@@ -8,7 +8,7 @@ class GameServer {
     }
 
     start() {
-        this.io.on('connection', this.client.onClientConnection)
+        this.io.on('connection', this.client.onClientConnection.bind(this.client))
     }
 }
 

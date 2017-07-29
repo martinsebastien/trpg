@@ -1,40 +1,39 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, Content } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 import { SocketService } from '../../services/socketService';
-import { MessageService } from '../../services/messageService';
+import { ConnectionService } from '../../services/connectionService';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  @ViewChild(Content) content: Content;
 
   socket: any;
-  connection: any;
-  chat: any;
-  username: string;
+  pseudo: string;
+  password: string;
 
   constructor(
     public navCtrl: NavController,
     public socketService: SocketService,
-    public messageService: MessageService,
+    public connectionService: ConnectionService,
   ) {
     this.socket = socketService.server();
   }
 
-  chatSend(msg) {
-    let data = {
-      username: this.username,
-      message: msg.textChat
-    };
-
-    this.messageService.sendMessage(this.socket, data);
-    this.chat = '';
-  }
-
   ngOnInit() {
-    this.connection = this.messageService.getMessages(this.socket)
+    this.connectionService.initConnection(this.socket);
   }
+
+  signIn() {
+    let data = {
+      pseudo: this.pseudo,
+      password: this.password,
+      token: this.connectionService.sessionId
+    };
+    this.connectionService.signIn(this.socket, data);
+    this.password = '';
+  }
+
 }

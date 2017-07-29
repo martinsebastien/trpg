@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 
 import { SocketService } from '../services/socketService';
 import { MessageService } from '../services/messageService';
+import { ConnectionService } from '../services/connectionService';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MessageService } from '../services/messageService';
     SplashScreen,
     SocketService,
     MessageService,
+    ConnectionService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
