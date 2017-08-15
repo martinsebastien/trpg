@@ -1,0 +1,25 @@
+background-home {
+    position: fixed;
+    z-index: -10;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    canvas {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    #c3{
+        opacity: 0;
+    }
+
+    #c4 {
+        background-image: url('../assets/Jungle-Bg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}

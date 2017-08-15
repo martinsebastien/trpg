@@ -4,13 +4,16 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class ConnectionService {
     sessionId: string;
+    navCtrl: any;
+    nextScreen: any;
 
     constructor(
         public alertCtrl: AlertController
     ) { }
 
-    initConnection(socket) {
-        console.log('socket.id')
+    initConnection(socket, nav, nextScreen) {
+        this.navCtrl = nav;
+        this.nextScreen = nextScreen;
         this.getSessionId(socket)
         this.onDisconnected(socket)
         this.onSuccessLogin(socket)
@@ -46,6 +49,7 @@ export class ConnectionService {
                 buttons: ['OK']
             });
             alert.present();
+            this.navCtrl.push(this.nextScreen);
         })
     }
 

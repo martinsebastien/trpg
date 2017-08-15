@@ -5,16 +5,26 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 
 import { SocketService } from '../services/socketService';
 import { MessageService } from '../services/messageService';
 import { ConnectionService } from '../services/connectionService';
+import { ListUserComponent } from '../components/list-user/list-user';
+import { MenuComponent } from '../components/menu/menu';
+import { BackgroundHomeComponent } from '../components/background-home/background-home';
+import { BackgroundLoginComponent } from '../components/background-login/background-login';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    LoginPage,
+    HomePage,
+    ListUserComponent,
+    MenuComponent,
+    BackgroundHomeComponent,
+    BackgroundLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +33,7 @@ import { ConnectionService } from '../services/connectionService';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage
   ],
   providers: [

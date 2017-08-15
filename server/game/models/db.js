@@ -27,6 +27,10 @@ class DataBase {
 
     tryAuthenticate(client) {
         var self = this
+        if (!client.pseudo || !client.password) {
+            self.io.emit('SERVER_FAIL_LOGIN')
+            return
+        }
 
         this.r.table('users')
             .filter({
@@ -39,7 +43,7 @@ class DataBase {
                     if (err) throw err;
                     let user = result[0]
                     if (!user) {
-                        self.io.emit('SERVER_FAIL_LOGIN')
+                        self.io.to(client.token).emit('SERVER_FAIL_LOGIN')
                     } else {
                         if (user.online == true) {
                             self.io.to(user.token).emit('SERVER_DISCONNECT_CLIENT')
@@ -47,7 +51,6 @@ class DataBase {
                                 .get(user.id)
                                 .update({ token: client.token })
                                 .run(self.connection)
-                            self.io.emit('SERVER_SUCCESS_LOGIN')
                         } else {
                             self.r.table('users')
                                 .get(user.id)
@@ -56,8 +59,8 @@ class DataBase {
                                     online: true
                                 })
                                 .run(self.connection)
-                            self.io.emit('SERVER_SUCCESS_LOGIN')
                         }
+                        self.io.to(client.token).emit('SERVER_SUCCESS_LOGIN')
                     }
                 });
             })

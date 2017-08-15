@@ -1,4 +1,6 @@
 // http://ionicframework.com/docs/v2/theming/
+//GENERAL FONTS
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,500,600,700');
 
 
 // App Global Sass
@@ -14,3 +16,17 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.alert-wrapper {
+    border-radius: 5px !important;
+
+    button {
+        background-image:linear-gradient(45deg, #A1DD9D, #2BCDA8);
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white !important;
+        border-radius: 50px !important;
+        box-shadow: -2px 2px 10px rgba(0,0,0,0.2) !important;
+    }
+}

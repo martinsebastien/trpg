@@ -1,0 +1,12 @@
+<ion-content>
+  <background-login></background-login>
+
+  <img class="logo" src="assets/logo-fakemon-white.png" alt="logo of the game">
+
+  <div class="container-login">
+    <h1>connection</h1>
+    <ion-input [(ngModel)]='pseudo' placeholder='Pseudo'></ion-input>
+    <ion-input [(ngModel)]='password' type='password' placeholder='Password'></ion-input>
+    <button (click)="signIn()" ion-button color="light">SIGN IN</button>
+  </div>
+</ion-content>
