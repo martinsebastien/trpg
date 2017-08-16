@@ -6,7 +6,6 @@ import { Component, HostListener } from '@angular/core';
 })
 export class BackgroundHomeComponent {
 
-  c1: any;
   c2: any;
   ctx1: any;
   ctx2: any;
@@ -49,27 +48,6 @@ export class BackgroundHomeComponent {
       alphaMax: 0.5
     };
 
-    this.ctx1.clearRect(0, 0, this.cw, this.ch);
-    this.ctx1.globalCompositeOperation = 'lighter';
-    /* TO ADD: static colored Bokeh 
-    while (this.count--) {
-      var radius = this.rand(this.opt.radiusMin, this.opt.radiusMax),
-        blur = this.rand(this.opt.blurMin, this.opt.blurMax),
-        x = this.rand(0, this.cw),
-        y = this.rand(0, this.ch),
-        hue = this.rand(this.opt.hueMin, this.opt.hueMax),
-        saturation = this.rand(this.opt.saturationMin, this.opt.saturationMax),
-        lightness = this.rand(this.opt.lightnessMin, this.opt.lightnessMax),
-        alpha = this.rand(this.opt.alphaMin, this.opt.alphaMax);
-
-      this.ctx1.shadowColor = this.hsla(hue, saturation, lightness, alpha);
-      this.ctx1.shadowBlur = blur;
-      this.ctx1.beginPath();
-      this.ctx1.arc(x, y, radius, 0, this.twopi);
-      this.ctx1.closePath();
-      this.ctx1.fill();
-    }*/
-
     this.parts.length = 0;
     for (var i = 0; i < Math.floor((this.cw + this.ch) * 0.03); i++) {
       this.parts.push({
@@ -88,7 +66,6 @@ export class BackgroundHomeComponent {
     this.ctx2.clearRect(0, 0, this.cw, this.ch);
     this.ctx2.globalCompositeOperation = 'source-over';
     this.ctx2.shadowBlur = 0;
-    this.ctx2.drawImage(this.c1, 0, 0);
     this.ctx2.globalCompositeOperation = 'lighter';
 
     var i = this.parts.length;
@@ -117,24 +94,22 @@ export class BackgroundHomeComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.cw = this.c1.width = this.c2.width = window.innerWidth;
-    this.ch = this.c1.height = this.c2.height = window.innerHeight;
+    this.cw = this.c2.width = window.innerWidth;
+    this.ch = this.c2.height = window.innerHeight;
 
     this.create();
   }
 
-  ngOnInit() {
-    this.c1 = document.getElementById('c3'),
-      this.ctx1 = this.c1.getContext('2d'),
-      this.c2 = document.getElementById('c4'),
+
+  ngAfterViewInit() {
+    this.c2 = document.querySelectorAll('.c4')[document.querySelectorAll('.c4').length - 1],
       this.ctx2 = this.c2.getContext('2d');
 
-    this.cw = this.c1.width = this.c2.width = window.innerWidth;
-    this.ch = this.c1.height = this.c2.height = window.innerHeight;
+    this.cw = this.c2.width = window.innerWidth;
+    this.ch = this.c2.height = window.innerHeight;
 
     this.create();
     this.loop();
   }
-
 
 }
