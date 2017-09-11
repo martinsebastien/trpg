@@ -19,6 +19,7 @@
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",
     "rethinkdb": "^2.3.3",
+    "rethinkdbdash": "^2.3.31",
     "socket.io": "^2.0.3"
   }
 }

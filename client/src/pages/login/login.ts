@@ -13,7 +13,7 @@ import { HomePage } from '../home/home';
 export class LoginPage {
 
   socket: any;
-  pseudo: string;
+  username: string;
   password: string;
   nextPage: any;
 
@@ -32,7 +32,7 @@ export class LoginPage {
 
   signIn() {
     let data = {
-      pseudo: this.pseudo,
+      username: this.username,
       password: this.password,
       token: this.connectionService.sessionId
     };

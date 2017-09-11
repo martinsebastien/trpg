@@ -11,6 +11,9 @@ import { HomePage } from '../pages/home/home';
 import { SocketService } from '../services/socketService';
 import { MessageService } from '../services/messageService';
 import { ConnectionService } from '../services/connectionService';
+import { FriendService } from '../services/friendService';
+import { UserService } from '../services/userService';
+
 import { ListUserComponent } from '../components/list-user/list-user';
 import { MenuComponent } from '../components/menu/menu';
 import { BackgroundHomeComponent } from '../components/background-home/background-home';
@@ -42,6 +45,8 @@ import { BackgroundLoginComponent } from '../components/background-login/backgro
     SocketService,
     MessageService,
     ConnectionService,
+    FriendService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

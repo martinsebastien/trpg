@@ -1,0 +1,23 @@
+2017-09-01T19:53:04.068606000 0.159234s notice: Recursively removing directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/server/rethinkdb_data/tmp
+2017-09-01T19:53:04.076452000 0.167086s notice: Initializing directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/server/rethinkdb_data
+2017-09-01T19:53:04.076593000 0.167221s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/server/rethinkdb_data' did not already exist or is empty.)
+2017-09-01T19:53:04.076627000 0.167254s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-09-01T19:53:04.086218000 0.176847s notice: Running on Darwin 16.7.0 x86_64
+2017-09-01T19:53:04.086256000 0.176883s notice: Loading data from directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/server/rethinkdb_data
+2017-09-01T19:53:04.191043000 0.281670s info: Automatically using cache size of 3966 MB
+2017-09-01T19:53:04.191960000 0.282587s notice: Listening for intracluster connections on port 29015
+2017-09-01T19:53:04.199246000 0.289874s notice: Listening for client driver connections on port 28015
+2017-09-01T19:53:04.199344000 0.289971s notice: Listening for administrative HTTP connections on port 8080
+2017-09-01T19:53:04.199346000 0.289973s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-01T19:53:04.199349000 0.289976s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-01T19:53:04.199351000 0.289978s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-01T19:53:04.199354000 0.289982s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-01T19:53:04.199359000 0.289986s notice: Server ready, "Sebastiens_MacBook_Pro_local_fgz" 40ccce21-1986-4ba5-a0ca-b42dc5929566
+2017-09-01T19:53:06.033122000 2.123728s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2017-09-01T19:59:27.364555000 383.452553s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T19:59:27.659356000 383.747355s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:07:13.814099000 849.898853s notice: Server got SIGINT from pid 4435, uid 501; shutting down...
+2017-09-01T20:07:13.814293000 849.899047s notice: Shutting down client connections...
+2017-09-01T20:07:13.814462000 849.899216s notice: All client connections closed.
+2017-09-01T20:07:13.814470000 849.899223s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-09-01T20:07:13.815701000 849.900455s notice: Storage engine shut down.

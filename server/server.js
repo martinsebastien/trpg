@@ -1,7 +1,9 @@
 let app = require('express')()
 let http = require('http').Server(app)
 let io = require('socket.io')(http)
-let r = require('rethinkdb')
+let r = require('rethinkdbdash')({
+    db: 'trpg'
+})
 let DataBase = require('./game/models/db') 
 let GameServer = require('./game/gameServer')
 

@@ -1,3 +1,18 @@
 page-home {
+    .container-article{
+        width: 100vw;
+        margin: 0 auto;
+        max-width: 960px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
 
+        ion-card {
+            max-width: 390px;
+            min-width: 300px;
+            align-self: flex-start;
+            margin-top: 0px !important;
+            margin-bottom: 15px !important;
+        }
+    }
 }

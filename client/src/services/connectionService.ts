@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 
+import { UserService } from './userService';
+
 @Injectable()
 export class ConnectionService {
     sessionId: string;
     navCtrl: any;
     nextScreen: any;
+    me: any;
 
     constructor(
-        public alertCtrl: AlertController
+        public alertCtrl: AlertController,
+        public userService: UserService
     ) { }
 
     initConnection(socket, nav, nextScreen) {
@@ -43,6 +47,7 @@ export class ConnectionService {
 
     onSuccessLogin(socket) {
         socket.on('SERVER_SUCCESS_LOGIN', (data) => {
+            this.me = this.userService.initUser(data)
             let alert = this.alertCtrl.create({
                 title: 'Success!',
                 subTitle: 'You have been successfully connected!',

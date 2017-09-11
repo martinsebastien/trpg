@@ -1,0 +1,104 @@
+2017-09-01T20:07:30.487744000 0.172677s notice: Recursively removing directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data/tmp
+2017-09-01T20:07:30.489177000 0.174114s notice: Initializing directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data
+2017-09-01T20:07:30.489261000 0.174194s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data' did not already exist or is empty.)
+2017-09-01T20:07:30.489285000 0.174217s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-09-01T20:07:30.494414000 0.179348s notice: Running on Darwin 16.7.0 x86_64
+2017-09-01T20:07:30.494447000 0.179380s notice: Loading data from directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data
+2017-09-01T20:07:30.597475000 0.282408s info: Automatically using cache size of 2523 MB
+2017-09-01T20:07:30.597934000 0.282866s notice: Listening for intracluster connections on port 29015
+2017-09-01T20:07:30.599385000 0.284318s notice: Listening for client driver connections on port 28015
+2017-09-01T20:07:30.599495000 0.284427s notice: Listening for administrative HTTP connections on port 8080
+2017-09-01T20:07:30.599502000 0.284434s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-01T20:07:30.599507000 0.284439s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-01T20:07:30.599509000 0.284442s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-01T20:07:30.599513000 0.284445s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-01T20:07:30.599517000 0.284449s notice: Server ready, "Sebastiens_MacBook_Pro_local_g2u" 18b6a722-4b83-48dd-b954-33f78e9b5468
+2017-09-01T20:07:32.132885000 1.817806s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2017-09-01T20:07:32.996147000 2.681068s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:07:33.085648000 2.770569s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:08:02.327523000 32.012237s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:08:02.399757000 32.084470s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:09:29.964425000 119.648512s notice: Server got SIGINT from pid 4435, uid 501; shutting down...
+2017-09-01T20:09:29.964682000 119.648769s notice: Shutting down client connections...
+2017-09-01T20:09:29.964795000 119.648882s notice: All client connections closed.
+2017-09-01T20:09:29.964802000 119.648888s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-09-01T20:09:29.965210000 119.649297s notice: Storage engine shut down.
+2017-09-01T20:09:52.508544000 0.180543s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-09-01T20:09:52.513822000 0.185816s notice: Running on Darwin 16.7.0 x86_64
+2017-09-01T20:09:52.513856000 0.185850s notice: Loading data from directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data
+2017-09-01T20:09:52.559981000 0.231975s info: Automatically using cache size of 2443 MB
+2017-09-01T20:09:52.560567000 0.232561s notice: Listening for intracluster connections on port 29015
+2017-09-01T20:09:52.561870000 0.233864s notice: Listening for client driver connections on port 28015
+2017-09-01T20:09:52.561973000 0.233966s notice: Listening for administrative HTTP connections on port 8080
+2017-09-01T20:09:52.561974000 0.233968s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-01T20:09:52.561977000 0.233970s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-01T20:09:52.561979000 0.233972s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-01T20:09:52.561982000 0.233976s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-01T20:09:52.561986000 0.233980s notice: Server ready, "Sebastiens_MacBook_Pro_local_g2u" 18b6a722-4b83-48dd-b954-33f78e9b5468
+2017-09-01T20:09:52.744347000 0.416341s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:09:52.868119000 0.540113s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:09:54.015994000 1.687988s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2017-09-01T20:36:31.022833000 190.874038s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: Starting a new Raft election for term 1.
+2017-09-01T20:36:31.023433000 190.874638s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: Added replica on this server.
+2017-09-01T20:36:31.041228000 190.892433s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: This server is Raft leader for term 1. Latest log index is 0.
+2017-09-01T20:50:11.776713000 1011.622089s notice: Server got SIGINT from pid 4435, uid 501; shutting down...
+2017-09-01T20:50:11.776873000 1011.622248s notice: Shutting down client connections...
+2017-09-01T20:50:11.776974000 1011.622349s notice: All client connections closed.
+2017-09-01T20:50:11.776981000 1011.622356s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-09-01T20:50:11.778965000 1011.624341s notice: Storage engine shut down.
+2017-09-01T20:53:28.638489000 0.013959s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-09-01T20:53:28.643908000 0.019374s notice: Running on Darwin 16.7.0 x86_64
+2017-09-01T20:53:28.643947000 0.019412s notice: Loading data from directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data
+2017-09-01T20:53:28.682893000 0.058359s info: Automatically using cache size of 1929 MB
+2017-09-01T20:53:28.683421000 0.058886s notice: Listening for intracluster connections on port 29015
+2017-09-01T20:53:28.695640000 0.071106s notice: Listening for client driver connections on port 28015
+2017-09-01T20:53:28.695772000 0.071237s notice: Listening for administrative HTTP connections on port 8080
+2017-09-01T20:53:28.695773000 0.071239s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-01T20:53:28.695775000 0.071241s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-01T20:53:28.695776000 0.071242s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-01T20:53:28.695826000 0.071292s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-01T20:53:28.695828000 0.071294s notice: Server ready, "Sebastiens_MacBook_Pro_local_g2u" 18b6a722-4b83-48dd-b954-33f78e9b5468
+2017-09-01T20:53:30.218512000 1.593966s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2017-09-01T20:53:30.462111000 1.837565s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: Starting a new Raft election for term 2.
+2017-09-01T20:53:30.487173000 1.862627s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: This server is Raft leader for term 2. Latest log index is 2.
+2017-09-01T20:53:30.546859000 1.922313s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:53:30.671323000 2.046777s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:53:37.904757000 9.280154s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-01T20:53:37.991841000 9.367238s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-09T13:22:10.068748000 20.047884s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-09-09T13:22:10.077955000 20.057086s notice: Running on Darwin 16.7.0 x86_64
+2017-09-09T13:22:10.077994000 20.057125s notice: Loading data from directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data
+2017-09-09T13:22:10.112973000 20.092104s info: Automatically using cache size of 2930 MB
+2017-09-09T13:22:10.113456000 20.092586s notice: Listening for intracluster connections on port 29015
+2017-09-09T13:22:10.131934000 20.111065s notice: Listening for client driver connections on port 28015
+2017-09-09T13:22:10.132153000 20.111284s notice: Listening for administrative HTTP connections on port 8080
+2017-09-09T13:22:10.132163000 20.111293s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-09T13:22:10.132165000 20.111296s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-09T13:22:10.132167000 20.111298s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-09T13:22:10.132169000 20.111300s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-09T13:22:10.132181000 20.111311s notice: Server ready, "Sebastiens_MacBook_Pro_local_g2u" 18b6a722-4b83-48dd-b954-33f78e9b5468
+2017-09-09T13:22:10.147534000 20.126665s warn: Problem when checking for new versions of RethinkDB: HTTP request to update.rethinkdb.com failed.
+2017-09-09T13:22:11.623694000 21.602814s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: Starting a new Raft election for term 3.
+2017-09-09T13:22:11.648147000 21.627267s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: This server is Raft leader for term 3. Latest log index is 5.
+2017-09-09T13:22:54.014761000 63.993659s notice: Server got SIGINT from pid 321, uid 501; shutting down...
+2017-09-09T13:22:54.014915000 63.993812s notice: Shutting down client connections...
+2017-09-09T13:22:54.015004000 63.993902s notice: All client connections closed.
+2017-09-09T13:22:54.015011000 63.993908s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-09-09T13:22:54.018082000 63.996981s notice: Storage engine shut down.
+2017-09-09T13:23:08.087631000 0.158372s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-09-09T13:23:08.092646000 0.163384s notice: Running on Darwin 16.7.0 x86_64
+2017-09-09T13:23:08.092689000 0.163426s notice: Loading data from directory /Users/sebastienmartin/Documents/Exercices NODEJS/T-RPG/rethinkdb_data
+2017-09-09T13:23:08.132907000 0.203644s info: Automatically using cache size of 2939 MB
+2017-09-09T13:23:08.133491000 0.204229s notice: Listening for intracluster connections on port 29015
+2017-09-09T13:23:08.147618000 0.218355s notice: Listening for client driver connections on port 28015
+2017-09-09T13:23:08.147844000 0.218582s notice: Listening for administrative HTTP connections on port 8080
+2017-09-09T13:23:08.147846000 0.218584s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-09T13:23:08.147849000 0.218586s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-09T13:23:08.147850000 0.218588s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-09T13:23:08.147954000 0.218692s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-09T13:23:08.147956000 0.218694s notice: Server ready, "Sebastiens_MacBook_Pro_local_g2u" 18b6a722-4b83-48dd-b954-33f78e9b5468
+2017-09-09T13:23:09.323581000 1.394319s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: Starting a new Raft election for term 4.
+2017-09-09T13:23:09.349344000 1.420081s info: Table 91a31b7e-8239-4f1a-bd90-c99e51978eba: This server is Raft leader for term 4. Latest log index is 8.
+2017-09-09T13:23:09.603627000 1.674355s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2017-09-09T13:26:40.118417000 212.188014s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-09T13:26:40.266936000 212.336532s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
