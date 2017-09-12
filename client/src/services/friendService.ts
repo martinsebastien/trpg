@@ -17,21 +17,21 @@ export class FriendService {
     }
 
     onFailAddFriend(socket) {
-        console.log('ok')
         socket.on('SERVER_FAIL_ADD_FRIEND_IS_ME', (data) => {
-            this.presentToast('You can\'t add yourself as friend, even if there is a lot of people in your head. Sorry ...')
+            this.presentToast('You can\'t add yourself as friend, even if there is a lot of people in your head. Sorry ...');
         })
         socket.on('SERVER_FAIL_ADD_FRIEND_ALREADY_FRIEND', (data) => {
-            this.presentToast('You already are friend')
+            this.presentToast('You already are friend');
         })
         socket.on('SERVER_FAIL_ADD_FRIEND_DOES_NOT_EXIST', (data) => {
-            this.presentToast('No player found with that awkward pseudo.')
+            this.presentToast('No player found with that awkward pseudo.');
         })
     }
 
     onSuccessAddFriend(socket) {
         socket.on('SERVER_SUCCESS_ADD_FRIEND', (data) => {
-            this.presentToast('Friend added successfully !')
+            this.userService.setFriendList(data.friendList);
+            this.presentToast('Friend added successfully !');
         })
     }
 

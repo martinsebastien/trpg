@@ -19,9 +19,11 @@
 
 .alert-wrapper {
     border-radius: 5px !important;
+    background-color: rgb(40,40,50) !important; 
+    color: white !important;
 
     button {
-        background-image:linear-gradient(45deg, #A1DD9D, #2BCDA8);
+        background-image:linear-gradient(45deg, #FFF17F, #796AFF);
         font-family: 'Work Sans', sans-serif;
         font-weight: 600;
         text-transform: uppercase;
@@ -32,7 +34,7 @@
 }
 
 ion-card-title {
-    color: #2BCDA8 !important;
+    color: rgba(255,255,255,1) !important;
     font-family: 'Work Sans', sans-serif !important;
     font-weight: 700 !important;
     text-align: center;
@@ -42,7 +44,7 @@ ion-card-title {
     .subtitle-card {
         font-weight: 300 !important;
         font-size: 15px !important;
-        color: rgba(0,0,0,0.3) !important;
+        color: rgba(255,255,255,0.5) !important;
         text-transform: none !important;
     }
 }
@@ -50,6 +52,14 @@ ion-card-title {
 ion-card {
     p{
         margin-bottom: 10px !important;
-        color: rgba(0,0,0,0.7) !important;
+        color: rgba(255,255,255, 0.9) !important;
     }
+}
+
+.alert-input:focus {
+    border-bottom: 2px solid #FFF17F !important;
+}
+
+input{
+    color: rgba(255,255,255,0.9) !important;
 }

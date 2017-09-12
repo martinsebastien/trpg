@@ -12,7 +12,7 @@ export class ConnectionService {
 
     constructor(
         public alertCtrl: AlertController,
-        public userService: UserService
+        public userService: UserService,
     ) { }
 
     initConnection(socket, nav, nextScreen) {
@@ -42,6 +42,7 @@ export class ConnectionService {
                 buttons: ['OK']
             });
             alert.present();
+            this.navCtrl.popToRoot();
         })
     }
 

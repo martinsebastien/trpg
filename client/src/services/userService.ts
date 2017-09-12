@@ -12,4 +12,12 @@ export class UserService {
         this.me = User.build(data);
     }
 
+    setFriendList(data) {
+        this.me.friendList = data;
+    }
+
+    setPseudo(data) {
+        this.me.pseudo = data;
+    }
+
 }
