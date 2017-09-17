@@ -6,9 +6,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class BackgroundLoginComponent {
 
-  c1: any;
   c2: any;
-  ctx1: any;
   ctx2: any;
   twopi = Math.PI * 2;
   parts = [];
@@ -49,9 +47,6 @@ export class BackgroundLoginComponent {
       alphaMax: 0.5
     };
 
-    this.ctx1.clearRect(0, 0, this.cw, this.ch);
-    this.ctx1.globalCompositeOperation = 'lighter';
-
     this.parts.length = 0;
     for (var i = 0; i < Math.floor((this.cw + this.ch) * 0.03); i++) {
       this.parts.push({
@@ -70,7 +65,6 @@ export class BackgroundLoginComponent {
     this.ctx2.clearRect(0, 0, this.cw, this.ch);
     this.ctx2.globalCompositeOperation = 'source-over';
     this.ctx2.shadowBlur = 0;
-    this.ctx2.drawImage(this.c1, 0, 0);
     this.ctx2.globalCompositeOperation = 'lighter';
 
     var i = this.parts.length;
@@ -99,24 +93,22 @@ export class BackgroundLoginComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.cw = this.c1.width = this.c2.width = window.innerWidth;
-    this.ch = this.c1.height = this.c2.height = window.innerHeight;
+    this.cw = this.c2.width = window.innerWidth;
+    this.ch = this.c2.height = window.innerHeight;
 
     this.create();
   }
 
-  ngOnInit() {
-    this.c1 = document.getElementById('c1'),
-      this.ctx1 = this.c1.getContext('2d'),
-      this.c2 = document.getElementById('c2'),
+
+  ngAfterViewInit() {
+    this.c2 = document.querySelectorAll('.c1')[document.querySelectorAll('.c1').length - 1],
       this.ctx2 = this.c2.getContext('2d');
 
-    this.cw = this.c1.width = this.c2.width = window.innerWidth;
-    this.ch = this.c1.height = this.c2.height = window.innerHeight;
+    this.cw = this.c2.width = window.innerWidth;
+    this.ch = this.c2.height = window.innerHeight;
 
     this.create();
     this.loop();
   }
-
 
 }

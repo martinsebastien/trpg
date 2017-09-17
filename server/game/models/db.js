@@ -10,11 +10,11 @@ class DataBase {
 
     // QUERIES
     // Update a row
-    updateEntry(table, id, field, value) {
+    async updateEntry(table, id, field, value) {
         let updateField = {}
         updateField[field] = value
 
-        this.r.table(table)
+        await this.r.table(table)
             .get(id)
             .update(updateField)
             .run()
@@ -28,7 +28,7 @@ class DataBase {
         updateField[field] = object[field]
         updateField[field].push(value)
 
-        this.r.table(table).get(id)
+        await this.r.table(table).get(id)
             .update(updateField)
             .run()
     }
@@ -42,19 +42,20 @@ class DataBase {
 
     // Add a friend for a given user
     async addFriend(data, client) {
-        console.log(client.id)
         let me = data.me
         let friendName = data.pseudo
         let user = await this.r.table('users').get(me.id)
 
-        let isMe = me.pseudo === friendName
-        let isAlreadyFriend = user.friendList.includes(friendName)
 
-        let friend = await this.r.table('users')
+        let friendRaw = await this.r.table('users')
             .filter({
                 pseudo: friendName
             })
             .run()
+        let friend = friendRaw[0]
+
+        let isMe = me.pseudo === friendName
+        let isAlreadyFriend = user.friendList.includes(friend.id)
 
         //Can't add himself as friend
         if (isMe) {
@@ -67,11 +68,11 @@ class DataBase {
             return
         }
         //That pseudo exist
-        if (!!friend.length) {
-            await this.appendData('users', me.id, 'friendList', friendName)
-            let updatedUser = await this.r.table('users').get(me.id)
+        if (!!friendRaw.length) {
+            await this.appendData('users', me.id, 'friendList', friend.id)
+            let friendList = await this.buildFriendList(me.id)
 
-            this.io.to(client.id).emit('SERVER_SUCCESS_ADD_FRIEND', updatedUser)
+            this.io.to(client.id).emit('SERVER_SUCCESS_ADD_FRIEND', friendList)
         } else {
             this.io.to(client.id).emit('SERVER_FAIL_ADD_FRIEND_DOES_NOT_EXIST')
         }
@@ -87,8 +88,41 @@ class DataBase {
             role: 'player',
             online: false,
             token: 'xxx',
+            status: 'offline',
             friendList: []
         }).run()
+    }
+
+    async buildFriendList(id) {
+        let me = await this.getEntry('users', id)
+        let friendList = []
+
+        for (let friendId of me.friendList) {
+            let friendRaw = await this.getEntry('users', friendId)
+            let friend = {}
+            friend['id'] = friendRaw.id
+            friend['pseudo'] = friendRaw.pseudo
+            friend['status'] = friendRaw.status
+
+            await friendList.push(friend)
+        }
+
+        return friendList
+    }
+
+    async buildUser(id) {
+        let me = await this.getEntry('users', id)
+        let user = {}
+
+        user['id'] = me.id
+        user['pseudo'] = me.pseudo
+        user['role'] = me.role
+        user['online'] = me.online
+        user['token'] = me.token
+        user['friendList'] = me.friendList
+        user['status'] = me.status
+
+        return user
     }
 
     //Set a user disconnected
@@ -99,7 +133,11 @@ class DataBase {
             })
             .run()
 
-        !!user.length && this.updateEntry('users', user.id, 'online', false)
+        if (!!user.length) {
+            let thisUser = user[0]
+            await this.updateEntry('users', thisUser.id, 'online', false)
+            await this.updateEntry('users', thisUser.id, 'status', 'offline')
+        }
     }
 
     //Try authenticate a user
@@ -117,16 +155,21 @@ class DataBase {
             .run()
 
         if (!!userArray.length) {
-            let user = userArray[0]
-            delete user.password
+            let userRaw = userArray[0]
+            let user = await this.buildUser(userRaw.id)
 
             if (user.online == true) {
                 this.io.to(user.token).emit('SERVER_DISCONNECT_CLIENT')
-                this.updateEntry('users', user.id, 'token', client.token)
+                await this.updateEntry('users', user.id, 'token', client.token)
             } else {
-                this.updateEntry('users', user.id, 'token', client.token)
-                this.updateEntry('users', user.id, 'online', true)
+                await this.updateEntry('users', user.id, 'token', client.token)
+                await this.updateEntry('users', user.id, 'online', true)
+                await this.updateEntry('users', user.id, 'status', 'online')
             }
+
+            let friendList = await this.buildFriendList(user.id)
+            user.friendList = friendList
+
             this.io.to(client.token).emit('SERVER_SUCCESS_LOGIN', user)
         } else {
             this.io.to(client.token).emit('SERVER_FAIL_LOGIN')

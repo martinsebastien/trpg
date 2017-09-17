@@ -17,6 +17,40 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+//ION-CARD revamp
+ion-card {
+
+    ion-card-title {
+        color: rgba(255,255,255,1) !important;
+        font-family: 'Work Sans', sans-serif !important;
+        font-weight: 700 !important;
+        text-align: center;
+        font-size: 2.1rem !important;
+        text-transform: uppercase;
+
+        .subtitle-card {
+            font-weight: 300 !important;
+            font-size: 15px !important;
+            color: rgba(255,255,255,0.5) !important;
+            text-transform: none !important;
+        }
+    }
+    
+    p{
+        margin-bottom: 10px !important;
+        color: rgba(255,255,255, 0.9) !important;
+    }
+}
+
+// ALERTS revamp
+.alert-input:focus {
+    border-bottom: 2px solid #FFF17F !important;
+}
+
+input{
+    color: rgba(255,255,255,0.9) !important;
+}
+
 .alert-wrapper {
     border-radius: 5px !important;
     background-color: rgb(40,40,50) !important; 
@@ -33,33 +67,11 @@
     }
 }
 
-ion-card-title {
-    color: rgba(255,255,255,1) !important;
-    font-family: 'Work Sans', sans-serif !important;
-    font-weight: 700 !important;
-    text-align: center;
-    font-size: 2.1rem !important;
-    text-transform: uppercase;
-
-    .subtitle-card {
-        font-weight: 300 !important;
-        font-size: 15px !important;
-        color: rgba(255,255,255,0.5) !important;
-        text-transform: none !important;
-    }
+// HEADER revamp
+.toolbar-background {
+    background: color($colors, dark)
 }
 
-ion-card {
-    p{
-        margin-bottom: 10px !important;
-        color: rgba(255,255,255, 0.9) !important;
-    }
-}
-
-.alert-input:focus {
-    border-bottom: 2px solid #FFF17F !important;
-}
-
-input{
-    color: rgba(255,255,255,0.9) !important;
+ion-header{
+    color: white !important;
 }

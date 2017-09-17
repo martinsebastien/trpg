@@ -102,3 +102,6 @@
 2017-09-09T13:23:09.603627000 1.674355s notice: A newer version of the RethinkDB server is available: 2.3.6. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
 2017-09-09T13:26:40.118417000 212.188014s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
 2017-09-09T13:26:40.266936000 212.336532s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
+2017-09-17T16:46:46.599860000 223496.591066s info: Table 592307f2-eb7d-41a7-959f-96b9c28664f0: Starting a new Raft election for term 1.
+2017-09-17T16:46:46.603974000 223496.595177s info: Table 592307f2-eb7d-41a7-959f-96b9c28664f0: Added replica on this server.
+2017-09-17T16:46:46.620850000 223496.612053s info: Table 592307f2-eb7d-41a7-959f-96b9c28664f0: This server is Raft leader for term 1. Latest log index is 0.

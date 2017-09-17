@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/User';
+import { Friend } from '../models/Friend';
 
 @Injectable()
 export class UserService {
@@ -13,7 +14,8 @@ export class UserService {
     }
 
     setFriendList(data) {
-        this.me.friendList = data;
+        console.log(data)
+        this.me.friendList = data.map(friend => Friend.build(friend));
     }
 
     setPseudo(data) {

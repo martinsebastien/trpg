@@ -8,6 +8,7 @@ class User {
         this.user.token = data.token
         this.user.online = data.online
         this.user.friendsList = data.friendsList
+        this.user.status = data.status
 
         this.r = r
         this.connection = connection

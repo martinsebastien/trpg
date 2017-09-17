@@ -13,12 +13,8 @@ background-login {
         top: 0;
     }
 
-    #c1 {
-        opacity: 0;
-    }
-
-    #c2 {
-        background-image: url('../assets/Jungle-Bg.jpg');
+    .c1 {
+        background-image: linear-gradient(rgba(0,0,0,.8),rgba(255,241,127,.3),rgba(121,106,255,0.15), rgba(0,0,0,0.8)), url('../assets/Jungle-Bg.jpg');
         background-size: cover;
         background-position: center;
     }

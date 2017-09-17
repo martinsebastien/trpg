@@ -1,15 +1,14 @@
 <div class="side-part">
-  <button ion-button color="dark" class="round">
+  <!--<button ion-button color="dark" class="round">
     <img class="icon-menu" src="../../assets/menu-icon.png" alt="menu icon">
-  </button>
+  </button> -->
+  <h1>{{this.userService.me.pseudo}}</h1>
 </div>
 
 <div class="central-part">
-  <button ion-button color="dark" class="blue-green font-white big-cta">Play</button>
+  <play-button></play-button>
 </div>
 
 <div class="side-part">
-  <button ion-button color="dark" class="round" (click)="addFriend()">
-      <img class="icon-menu" src="../../assets/addUser-icon.png" alt="menu icon">
-  </button>
+  <add-friend></add-friend>
 </div>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+
+import { NavController, Platform } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { SocketService } from '../../services/socketService';
 import { ConnectionService } from '../../services/connectionService';
@@ -21,9 +23,15 @@ export class LoginPage {
     public navCtrl: NavController,
     public socketService: SocketService,
     public connectionService: ConnectionService,
+    public platform: Platform,
+    public screenOriention: ScreenOrientation
   ) {
     this.socket = socketService.server();
     this.nextPage = HomePage;
+
+    if (this.platform.is('android') || this.platform.is('ios')) {
+      screenOriention.lock('landscape');
+    }
   }
 
   ngOnInit() {

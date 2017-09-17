@@ -7,7 +7,6 @@ import { Component, HostListener } from '@angular/core';
 export class BackgroundHomeComponent {
 
   c2: any;
-  ctx1: any;
   ctx2: any;
   twopi = Math.PI * 2;
   parts = [];

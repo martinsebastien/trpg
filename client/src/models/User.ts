@@ -1,9 +1,12 @@
+import { Friend } from './Friend';
+
 export class User {
 
     public id: number;
     public username: string;
     public pseudo: number;
     public friendList: string;
+    public status: string;
     public token: string;
 
     static build(data: any): User {
@@ -13,15 +16,17 @@ export class User {
             username,
             pseudo,
             friendList,
-            token
+            token,
+            status
         } = data;
 
         const u = new User;
         u.id = id;
         u.username = username;
         u.pseudo = pseudo;
-        u.friendList = friendList;
+        u.friendList = friendList.map(friend => Friend.build(friend));
         u.token = token;
+        u.status = status;
 
         return u;
     }
