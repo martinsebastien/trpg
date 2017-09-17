@@ -67,6 +67,12 @@ input{
     }
 }
 
+// BADGE revamp
+ion-badge{
+    position: relative !important;
+    margin-left: -20px !important;
+}
+
 // HEADER revamp
 .toolbar-background {
     background: color($colors, dark)

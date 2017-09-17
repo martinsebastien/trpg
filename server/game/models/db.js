@@ -9,6 +9,11 @@ class DataBase {
     // Handfull methods
 
     // QUERIES
+    // Add an entry to a table
+    async createEntry(table, value) {
+        await this.r.table(table).insert(value).run()
+    }
+
     // Update a row
     async updateEntry(table, id, field, value) {
         let updateField = {}
@@ -69,10 +74,37 @@ class DataBase {
         }
         //That pseudo exist
         if (!!friendRaw.length) {
-            await this.appendData('users', me.id, 'friendList', friend.id)
-            let friendList = await this.buildFriendList(me.id)
+            let hasAlreadyAFriendRequestFromMe = await this.r.table('requests')
+                .filter({
+                    to: friend.id,
+                    from: me.id
+                })
+                .run()
 
-            this.io.to(client.id).emit('SERVER_SUCCESS_ADD_FRIEND', friendList)
+            if (!!hasAlreadyAFriendRequestFromMe.length) {
+                this.io.to(client.id).emit('SERVER_ALREADY_FRIEND_REQUEST')
+            } else {
+                let friendRequest = {}
+                friendRequest['from'] = me.id
+                friendRequest['to'] = friend.id
+                friendRequest['type'] = 'friend'
+                friendRequest['status'] = 'pending'
+
+                await this.createEntry('requests', friendRequest)
+
+                let friendRequestListRaw = await this.r.table('requests')
+                    .filter({
+                        to: friend.id
+                    })
+                    .run()
+
+                this.io.to(friend.token).emit('SERVER_UPDATE_FRIEND_REQUEST', friendRequestListRaw)
+            }
+
+            //await this.appendData('users', me.id, 'friendList', friend.id)
+            //let friendList = await this.buildFriendList(me.id)
+
+            //this.io.to(client.id).emit('SERVER_SUCCESS_ADD_FRIEND', friendList)
         } else {
             this.io.to(client.id).emit('SERVER_FAIL_ADD_FRIEND_DOES_NOT_EXIST')
         }
@@ -170,7 +202,14 @@ class DataBase {
             let friendList = await this.buildFriendList(user.id)
             user.friendList = friendList
 
+            let friendRequestListRaw = await this.r.table('requests')
+                .filter({
+                    to: user.id
+                })
+                .run()
+
             this.io.to(client.token).emit('SERVER_SUCCESS_LOGIN', user)
+            this.io.to(client.token).emit('SERVER_UPDATE_FRIEND_REQUEST', friendRequestListRaw)
         } else {
             this.io.to(client.token).emit('SERVER_FAIL_LOGIN')
         }

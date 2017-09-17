@@ -11,6 +11,8 @@ menu {
     .side-part{
         width: 25%;
         text-align: center;
+        display: flex;
+        flex-direction: row;
     }
 
     .central-part {

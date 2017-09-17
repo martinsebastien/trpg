@@ -1,0 +1,4 @@
+<button ion-button color="dark" class="round" (click)="showRequests()">
+      <img class="icon-menu" src="../../assets/requestUser-icon.png" alt="menu icon">
+</button>
+<ion-badge *ngIf="this.friendRequestService.list.length > 0" item-end>{{this.friendRequestService.list.length}}</ion-badge>

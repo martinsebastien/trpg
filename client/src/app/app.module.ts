@@ -14,6 +14,7 @@ import { SocketService } from '../services/socketService';
 import { MessageService } from '../services/messageService';
 import { ConnectionService } from '../services/connectionService';
 import { FriendService } from '../services/friendService';
+import { FriendRequestService } from '../services/friendRequestService';
 import { UserService } from '../services/userService';
 
 import { ListUserComponent } from '../components/list-user/list-user';
@@ -23,6 +24,7 @@ import { BackgroundLoginComponent } from '../components/background-login/backgro
 import { AddFriendComponent } from '../components/add-friend/add-friend';
 import { PlayButtonComponent } from '../components/play-button/play-button';
 import { FriendListComponent } from '../components/friend-list/friend-list';
+import { FriendRequestsComponent } from '../components/friend-requests/friend-requests';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { FriendListComponent } from '../components/friend-list/friend-list';
     BackgroundLoginComponent,
     AddFriendComponent,
     PlayButtonComponent,
-    FriendListComponent
+    FriendListComponent,
+    FriendRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { FriendListComponent } from '../components/friend-list/friend-list';
     MessageService,
     ConnectionService,
     FriendService,
+    FriendRequestService,
     UserService,
     ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

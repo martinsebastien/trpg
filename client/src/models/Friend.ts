@@ -1,7 +1,7 @@
 export class Friend {
 
     public id: number;
-    public pseudo: number;
+    public pseudo: string;
     public status: string;
 
     static build(data: any): Friend {
@@ -16,7 +16,6 @@ export class Friend {
         f.id = id;
         f.pseudo = pseudo;
         f.status = status;
-        console.log(f)
         return f;
     }
 

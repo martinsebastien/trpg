@@ -4,7 +4,7 @@ export class User {
 
     public id: number;
     public username: string;
-    public pseudo: number;
+    public pseudo: string;
     public friendList: string;
     public status: string;
     public token: string;
