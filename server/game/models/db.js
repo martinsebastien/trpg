@@ -80,6 +80,7 @@ class DataBase {
             this.io.to(client.id).emit('SERVER_FAIL_ADD_FRIEND_ALREADY_FRIEND')
             return
         }
+
         //That pseudo exist
         if (!!friendRaw.length) {
             let hasAlreadyAFriendRequestFromMe = await this.r.table('requests')
@@ -88,8 +89,14 @@ class DataBase {
                     from: me.id
                 })
                 .run()
-
-            if (!!hasAlreadyAFriendRequestFromMe.length) {
+            let hasAlreadyAFriendRequestFromHim = await this.r.table('requests')
+                .filter({
+                    to: me.id,
+                    from: friend.id
+                })
+                .run()
+            // If a request already exist
+            if (!!hasAlreadyAFriendRequestFromMe.length || !!hasAlreadyAFriendRequestFromHim.length) {
                 this.io.to(client.id).emit('SERVER_ALREADY_FRIEND_REQUEST')
             } else {
                 let friendRequest = {}
@@ -142,7 +149,19 @@ class DataBase {
     }
 
     async declineFriendRequest(data, client) {
+        let request = await this.getEntry('requests', data)
+        let toUser = await this.getEntry('users', request.to)
 
+        await this.deleteEntry('requests', data)
+
+        let friendRequestListRaw = await this.r.table('requests')
+            .filter({
+                to: toUser.id
+            })
+            .run()
+        let friendRequestList = await this.buildFriendRequestList(friendRequestListRaw)
+        
+        this.io.to(toUser.token).emit('SERVER_UPDATE_FRIEND_REQUEST', friendRequestList)
     }
 
     // USER MATTERS
