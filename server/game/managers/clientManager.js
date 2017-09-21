@@ -12,6 +12,8 @@ class ClientManager {
         client.on('CLIENT_AUTH_REQUEST', onAuthTry.bind(this))
         client.on('disconnect', onDisconnected.bind(this))
         client.on('CLIENT_ADD_FRIEND', onAddFriend.bind(this))
+        client.on('CLIENT_ACCEPT_FRIEND_REQUEST', onAcceptFriendRequest.bind(this))
+        client.on('CLIENT_DECLINE_FRIEND_REQUEST', onDeclineFriendRequest.bind(this))
 
         function onDisconnected() {
             this.db.disconnectUser(client)
@@ -23,6 +25,15 @@ class ClientManager {
 
         function onAddFriend(data) {
             this.db.addFriend(data, client)
+        }
+
+        function onAcceptFriendRequest(data) {
+            console.log(data)
+            this.db.acceptFriendRequest(data, client)
+        }
+
+        function onDeclineFriendRequest(data) {
+            this.db.declineFriendRequest(data, client)
         }
 
     }

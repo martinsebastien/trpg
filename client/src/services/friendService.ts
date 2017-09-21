@@ -30,9 +30,7 @@ export class FriendService {
 
     onSuccessAddFriend(socket) {
         socket.on('SERVER_SUCCESS_ADD_FRIEND', (data) => {
-            console.log(data)
             this.userService.setFriendList(data);
-            this.presentToast('Friend added successfully !');
         })
     }
 

@@ -1,3 +1,90 @@
 friend-list {
+    .list-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 95%;
+        max-width: 960px;
+        margin: 0 auto;
 
+        .sorry{
+            padding: 5px 15px 5px 15px;
+        }
+
+        .list-item{
+            padding: 10px 15px 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: color($colors, dark);
+            color: white;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+
+            .player {
+                h4{
+                    margin: 0;
+                    font-size: 1.1em !important;
+                    color: rgba(255,255,255,0.85);
+                }
+
+                .player-status {
+                    span {
+                        margin-right: 3px;
+                    }
+
+                    .online {
+                        border-radius: 50px;
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        background: lawngreen;
+                    }
+                    
+                    .offline {
+                        border-radius: 50px;
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        background: red;
+                    }
+                    
+                    .in-fight {
+                        border-radius: 50px;
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        background: orange;
+                    }
+
+                    h5 {
+                        margin: 0;
+                        display: inline-block !important;
+                        font-size: 1em !important;
+                        color: rgba(255,255,255,0.7); 
+                    }
+                }
+            }
+
+
+            .button-container {
+                display: flex;
+                width: 40px;
+                justify-content: space-between;
+
+                .button-item {
+                    border-radius: 50px;
+                    background-image:linear-gradient(45deg, #FFF17F, #796AFF);
+                    width: 30px;
+                    height: 30px;
+
+                    img {
+                        margin-left: 7px;
+                        margin-top: 7.5px;
+                        width: 15px;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { PlayPage } from '../pages/play/play';
+import { FriendRequestPopoverPage } from '../pages/friend-request-popover/friend-request-popover';
 
 import { SocketService } from '../services/socketService';
 import { MessageService } from '../services/messageService';
@@ -32,6 +33,7 @@ import { FriendRequestsComponent } from '../components/friend-requests/friend-re
     LoginPage,
     HomePage,
     PlayPage,
+    FriendRequestPopoverPage,
     ListUserComponent,
     MenuComponent,
     BackgroundHomeComponent,
@@ -50,7 +52,8 @@ import { FriendRequestsComponent } from '../components/friend-requests/friend-re
     MyApp,
     LoginPage,
     HomePage,
-    PlayPage
+    PlayPage,
+    FriendRequestPopoverPage
   ],
   providers: [
     StatusBar,

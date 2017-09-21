@@ -30,7 +30,7 @@ export class LoginPage {
     this.nextPage = HomePage;
 
     if (this.platform.is('android') || this.platform.is('ios')) {
-      screenOriention.lock('landscape');
+      screenOriention.lock('portrait');
     }
   }
 

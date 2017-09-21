@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { FriendRequest } from '../models/FriendRequest';
+
 @Injectable()
 export class FriendRequestService {
 
@@ -15,8 +17,7 @@ export class FriendRequestService {
 
     onFriendRequestUpdate(socket) {
         socket.on('SERVER_UPDATE_FRIEND_REQUEST', (data) => {
-            console.log(data)
-            this.list = data
+            this.list = data.map(friend => FriendRequest.build(friend));
         });
     }
 
@@ -24,6 +25,14 @@ export class FriendRequestService {
         socket.on('SERVER_ALREADY_FRIEND_REQUEST', (data) => {
             console.log('You already sent a friend request to this user !')
         });
+    }
+
+    acceptRequest(socket, data) {
+        socket.emit('CLIENT_ACCEPT_FRIEND_REQUEST', data);
+    }
+
+    declineRequest(socket, data) {
+        socket.emit('CLIENT_DECLINE_FRIEND_REQUEST', data);
     }
 
 }

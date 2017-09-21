@@ -1,5 +1,23 @@
-<div>
-  <div *ngFor="let friend of this.userService.me.friendList">
-    <h2>{{friend.pseudo}}</h2>
+<div class="list-container">
+  <p *ngIf="this.userService.me.friendList.length == 0" class="sorry">You don't have friends, sorry...</p>
+
+  <div class="list-item" *ngFor="let friend of this.userService.me.friendList">
+    <div class="player">
+      <h4>
+        {{friend.pseudo}}
+      </h4>
+      <div class="player-status">
+        <span *ngIf= "friend.status == 'Online'" class="online"></span>
+        <span *ngIf= "friend.status == 'Offline'" class="offline"></span>
+        <span *ngIf= "friend.status == 'in Fight'" class="in-fight"></span>
+        <h5>{{friend.status}}</h5>
+      </div>
+    </div>
+    <div class="button-container" *ngIf= "friend.status == 'Online'">
+      <div class="button-item">
+        <img src="../../assets/fight-icon.png" alt="BASTON !!!">
+      </div>
+    </div>
   </div>
+
 </div>

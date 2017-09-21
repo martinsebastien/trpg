@@ -1,0 +1,16 @@
+<div class="list-container">
+  <p *ngIf="this.friendRequestService.list.length == 0" class="sorry">You don't have friend request, sorry...</p>
+  <div *ngFor="let friendRequest of this.friendRequestService.list" class="list-item">
+    <h4>
+      {{friendRequest.from.pseudo}}
+    </h4>
+    <div class="button-container">
+      <div class="button-item">
+        <ion-icon name="ios-checkmark" class="accept" (click)="acceptRequest(friendRequest.id)"></ion-icon>
+      </div>
+      <div class="button-item">
+        <ion-icon name="ios-close" class="decline" (click)="declineRequest(friendRequest.id)"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>
