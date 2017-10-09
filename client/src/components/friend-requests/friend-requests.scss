@@ -1,3 +1,19 @@
 friend-requests {
+    .round{
+        width: 25px;
+        height: 25px;
+        padding: 0px !important;
+        border-radius: 0px !important;
+    }
 
+    button {
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        margin-top: 12px !important;
+    }
+
+    .icon-menu{
+        width: 15px !important;
+    }
 }

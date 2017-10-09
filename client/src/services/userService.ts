@@ -14,7 +14,6 @@ export class UserService {
     }
 
     setFriendList(data) {
-        console.log(data)
         this.me.friendList = data.map(friend => Friend.build(friend));
     }
 

@@ -1,0 +1,65 @@
+player-status {
+    height: 20px;
+    
+    p {
+        margin: 0;
+        margin-top: -13px;
+    }
+
+    .online {
+        color: color($colors, lightenGreen);
+
+        &::before {
+            content: '';
+            display: block;
+            width: 17px;
+            height: 17px;
+            border-radius: 50px;
+            background: color($colors, darkest);
+            position: relative;
+            left: -33px;
+            top: 16px;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50px;
+            border: 3px solid color($colors, lightenGreen);
+            background: color($colors, darkenGreen);
+            position: relative;
+            left: -30px;
+            top: -13px;
+        }
+    }
+    .offline {
+        color: color($colors, darkSilver);
+
+        &::before {
+            content: '';
+            display: block;
+            width: 17px;
+            height: 17px;
+            border-radius: 50px;
+            background: color($colors, darkest);
+            position: relative;
+            left: -33px;
+            top: 16px;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50px;
+            border: 3px solid color($colors, mediumSilver);
+            background: color($colors, darkSilver);
+            position: relative;
+            left: -30px;
+            top: -13px;
+        }
+    }
+}

@@ -282,7 +282,6 @@ class DataBase {
             }
 
             let friendList = await this.buildFriendList(user.id)
-            user.friendList = friendList
 
             let friendRequestListRaw = await this.r.table('requests')
                 .filter({
@@ -290,8 +289,11 @@ class DataBase {
                 })
                 .run()
             let friendRequestList = await this.buildFriendRequestList(friendRequestListRaw)
+            
+            let userRefreshed = await this.getEntry('users', user.id)
+            userRefreshed.friendList = friendList
 
-            this.io.to(client.token).emit('SERVER_SUCCESS_LOGIN', user)
+            this.io.to(client.token).emit('SERVER_SUCCESS_LOGIN', userRefreshed)
             this.io.to(client.token).emit('SERVER_UPDATE_FRIEND_REQUEST', friendRequestList)
             await this.notifyFriendsOnUpdateStatus(user.id)
 

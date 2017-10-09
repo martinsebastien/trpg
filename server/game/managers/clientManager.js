@@ -28,7 +28,6 @@ class ClientManager {
         }
 
         function onAcceptFriendRequest(data) {
-            console.log(data)
             this.db.acceptFriendRequest(data, client)
         }
 

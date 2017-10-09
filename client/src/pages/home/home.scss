@@ -16,4 +16,11 @@ page-home {
             background-color: rgb(40,40,50) !important;
         }
     }
+
+    .content-container {
+        width: 100vw;
+        height: calc(100vh - 59px);
+        display: flex;
+        flex-direction: row;
+    }
 }

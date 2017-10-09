@@ -1,0 +1,21 @@
+<div id="avatar-border" *ngIf="this.friend.status == 'Online'">
+  <div id="avatar-container">
+    <img src="./assets/avatar.jpg" alt="avatar" id="avatar">
+  </div>
+</div>
+
+<div id="text-container" *ngIf="this.friend.status == 'Online'">
+  <h1>{{this.friend.pseudo}}</h1>
+  <player-status [status]="this.friend.status"></player-status>
+</div>
+
+<div id="avatar-border" class="offline-opacity" *ngIf="this.friend.status == 'Offline'">
+  <div id="avatar-container">
+    <img src="./assets/avatar.jpg" alt="avatar" id="avatar">
+  </div>
+</div>
+
+<div id="text-container" *ngIf="this.friend.status == 'Offline'">
+  <h1 class="offline-opacity">{{this.friend.pseudo}}</h1>
+  <player-status [status]="this.friend.status"></player-status>
+</div>

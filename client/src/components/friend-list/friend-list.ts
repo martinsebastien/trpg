@@ -12,4 +12,8 @@ export class FriendListComponent {
     public userService: UserService
   ) {}
 
+  challengePLayer(id) {
+    
+  }
+
 }

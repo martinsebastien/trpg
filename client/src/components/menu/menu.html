@@ -1,11 +1,12 @@
 <div class="side-part left">
-  <!--<button ion-button color="dark" class="round">
-    <img class="icon-menu" src="../../assets/menu-icon.png" alt="menu icon">
-  </button> -->
-  <h1>{{this.userService.me.pseudo}}</h1>
+  <div class="mini-logo-menu">
+    <img src="./assets/fakemon-mini-white.png" alt="mini logo">
+  </div>
+  <h2 class="link">Profile</h2>
+  <h2 class="link">Collection</h2>
+  <h2 class="link">Magasin</h2>
 </div>
 
 <div class="side-part right">
-  <friend-requests></friend-requests>
-  <add-friend></add-friend>
+  <me-status></me-status>
 </div>

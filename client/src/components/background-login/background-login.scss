@@ -4,6 +4,7 @@ background-login {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+    background: rgba(0,0,20,1);
 
     canvas {
         bottom: 0;
@@ -13,9 +14,12 @@ background-login {
         top: 0;
     }
 
-    .c1 {
-        background-image: linear-gradient(rgba(0,0,0,.8),rgba(255,241,127,.3),rgba(121,106,255,0.15), rgba(0,0,0,0.8)), url('../assets/Jungle-Bg.jpg');
-        background-size: cover;
-        background-position: center;
+    .gradient {
+        width: 100vw;
+        height: 300px;
+        background: radial-gradient(rgba(0,255,255,0.3), rgba(0,255,255,0) 60%);
+        position: fixed;
+        top: calc(50vh - 150px);
     }
+
 }

@@ -26,6 +26,13 @@ import { AddFriendComponent } from '../components/add-friend/add-friend';
 import { PlayButtonComponent } from '../components/play-button/play-button';
 import { FriendListComponent } from '../components/friend-list/friend-list';
 import { FriendRequestsComponent } from '../components/friend-requests/friend-requests';
+import { VerticalBackgroundComponent } from '../components/vertical-background/vertical-background';
+import { MeStatusComponent } from '../components/me-status/me-status';
+import { PlayerStatusComponent } from '../components/player-status/player-status';
+import { NewsComponent } from '../components/news/news';
+import { SocialComponent } from '../components/social/social';
+import { DetailsFriendComponent } from '../components/details-friend/details-friend';
+import { FriendComponent } from '../components/friend/friend';
 
 @NgModule({
   declarations: [
@@ -41,7 +48,14 @@ import { FriendRequestsComponent } from '../components/friend-requests/friend-re
     AddFriendComponent,
     PlayButtonComponent,
     FriendListComponent,
-    FriendRequestsComponent
+    FriendRequestsComponent,
+    VerticalBackgroundComponent,
+    MeStatusComponent,
+    PlayerStatusComponent,
+    NewsComponent,
+    SocialComponent,
+    DetailsFriendComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,

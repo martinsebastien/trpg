@@ -34,11 +34,21 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #FFF17F,
-  secondary:  #796AFF,
+  primary:    rgba(0,255,200,1),
+  secondary:  rgba(102,85,255,1),
   danger:     #f53d3d,
+  darkenGreen: rgba(6,166,71,1),
+  lightenGreen: rgba(103,248,160,1),
+  darkenBlue: rgba(1,81,118,1),
+  lightenBlue: rgba(10,197,225,1),
+  lightestSilver: rgba(218,227,234,1),
+  lightSilver: rgba(153,179,191,1),
+  mediumSilver: rgba(119,142,167,1),
+  darkSilver: rgba(78,102,117,1),
+  darkestSilver: rgba(44,70,83,1),
   light:      #f4f4f4,
-  dark:       #282832
+  dark:       rgba(21,21,37,1),
+  darkest: rgba(0,0,20,1)
 );
 
 

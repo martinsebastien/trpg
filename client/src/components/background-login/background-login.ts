@@ -6,16 +6,15 @@ import { Component, HostListener } from '@angular/core';
 })
 export class BackgroundLoginComponent {
 
-  c2: any;
-  ctx2: any;
-  twopi = Math.PI * 2;
-  parts = [];
-  sizeBase;
-  cw;
-  ch;
-  opt;
-  hue;
-  count;
+  canvas: any;
+  context: any;
+  width; 
+  height;
+  particles = [];
+  colors = [
+    'rgba(0, 255, 255, 0.3)',
+    'rgba(0, 255, 255, 0.7)'
+  ];
 
   constructor() {
   }
@@ -24,91 +23,100 @@ export class BackgroundLoginComponent {
     return Math.random() * (max - min) + min;
   }
 
-  hsla(h, s, l, a) {
-    return 'hsla(' + h + ',' + s + '%,' + l + '%,' + a + ')';
-  }
-
-  create() {
-    this.sizeBase = this.cw + this.ch;
-    this.count = Math.floor(this.sizeBase * 0.3);
-    this.hue = this.rand(0, 360);
-    this.opt = {
-      radiusMin: 1,
-      radiusMax: this.sizeBase * 0.04,
-      blurMin: 10,
-      blurMax: this.sizeBase * 0.04,
-      hueMin: this.hue,
-      hueMax: this.hue + 100,
-      saturationMin: 10,
-      saturationMax: 70,
-      lightnessMin: 20,
-      lightnessMax: 50,
-      alphaMin: 0.1,
-      alphaMax: 0.5
-    };
-
-    this.parts.length = 0;
-    for (var i = 0; i < Math.floor((this.cw + this.ch) * 0.03); i++) {
-      this.parts.push({
-        radius: this.rand(1, this.sizeBase * 0.03),
-        x: this.rand(0, this.cw),
-        y: this.rand(0, this.ch),
-        angle: this.rand(0, this.twopi),
-        vel: this.rand(0.1, 0.5),
-        tick: this.rand(0, 10000)
-      });
-    }
-  }
-
-  loop = () => {
-    requestAnimationFrame(this.loop);
-    this.ctx2.clearRect(0, 0, this.cw, this.ch);
-    this.ctx2.globalCompositeOperation = 'source-over';
-    this.ctx2.shadowBlur = 0;
-    this.ctx2.globalCompositeOperation = 'lighter';
-
-    var i = this.parts.length;
-    this.ctx2.shadowBlur = 15;
-    this.ctx2.shadowColor = '#fff';
-    while (i--) {
-      var part = this.parts[i];
-
-      part.x += Math.cos(part.angle) * part.vel;
-      part.y += Math.sin(part.angle) * part.vel;
-      part.angle += this.rand(-0.05, 0.05);
-
-      this.ctx2.beginPath();
-      this.ctx2.arc(part.x, part.y, part.radius, 0, this.twopi);
-      this.ctx2.fillStyle = this.hsla(0, 0, 100, 0.075 + Math.cos(part.tick * 0.02) * 0.05);
-      this.ctx2.fill();
-
-      if (part.x - part.radius > this.cw) { part.x = -part.radius }
-      if (part.x + part.radius < 0) { part.x = this.cw + part.radius }
-      if (part.y - part.radius > this.ch) { part.y = -part.radius }
-      if (part.y + part.radius < 0) { part.y = this.ch + part.radius }
-
-      part.tick++;
-    }
-  }
-
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.cw = this.c2.width = window.innerWidth;
-    this.ch = this.c2.height = window.innerHeight;
+    this.width = this.canvas.width = window.innerWidth;
+    this.height = this.canvas.height = window.innerHeight;
+    this.particles.length = 0;
 
-    this.create();
+    for (let i = 0; i < 200; i++) {
+      this.generateParticle();
+    }
   }
-
 
   ngAfterViewInit() {
-    this.c2 = document.querySelectorAll('.c1')[document.querySelectorAll('.c1').length - 1],
-      this.ctx2 = this.c2.getContext('2d');
+    this.canvas = document.getElementById('main');
+    this.context = this.canvas.getContext('2d');
 
-    this.cw = this.c2.width = window.innerWidth;
-    this.ch = this.c2.height = window.innerHeight;
+    this.width = this.canvas.width = window.innerWidth;
+    this.height = this.canvas.height = window.innerHeight;
 
-    this.create();
-    this.loop();
+    for (let i = 0; i < 200; i++) {
+      this.generateParticle();
+    }
+
+    this.draw();
   }
 
+  drawCanvas() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.context.fillStyle = 'rgba(0,0,0,0)';
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  draw = () => {
+    this.drawCanvas();
+
+    for (let i = 0; i < this.particles.length; i++) {
+      if (this.particles[i].dead) {
+        this.particles.splice(i, 1);
+      }
+      
+      if(this.particles[i]) {
+        this.context.globalCompositeOperation = "lighter";
+        this.context.beginPath();
+        
+        let gradient = this.context.createRadialGradient(this.particles[i].x, this.particles[i].y, 0, this.particles[i].x, this.particles[i].y, this.particles[i].size);
+        gradient.addColorStop(this.particles[i].colorStop, 'transparent');
+        gradient.addColorStop(0, this.particles[i].color);
+  
+        this.context.fillStyle = gradient;
+        this.context.arc(this.particles[i].x, this.particles[i].y, this.particles[i].size, 0, Math.PI * 2, true);
+        this.context.closePath();
+        this.context.fill();
+
+        //Do gravity stuff.
+        this.particles[i].x += this.particles[i].Hvelocity;
+        this.particles[i].y += this.particles[i].Vvelocity;
+
+        if (this.particles[i].x + this.particles[i].size < 0 || this.particles[i].y + this.particles[i].size < 0 || this.particles[i].x - this.particles[i].size > this.width || this.particles[i].y - this.particles[i].size > this.height) {
+          this.particles[i].dead = true;
+        }
+
+      }
+    }
+
+    if (this.particles.length < 200) {
+      for (let i = 0; i < 10; i++) {
+        this.generateParticle();
+      }
+    }
+   
+    requestAnimationFrame(this.draw);
+  }
+
+  generateParticle() {
+    let color = Math.floor(Math.random() * this.colors.length) + 0;
+    let isBlurred = Math.random() < 0.7 ? true : false;
+
+    let particle = {
+      x: (this.width / 2),
+      y: (this.height / 2) + (Math.random() * 100) - 50,
+      size: isBlurred ? Math.floor(Math.random() * 6) : Math.random() * 3,
+      color: this.colors[color],
+      Hvelocity: Math.random() * 5,
+      Vvelocity: Math.random() * 0,
+      dead: false,
+      colorStop: isBlurred ? 1 : 0
+    };
+    
+    if (Math.random() < 0.5) {
+      particle.Hvelocity *= -1;
+    }
+    if (Math.random() < 0.5) {
+      particle.Vvelocity *= -1;
+    }
+
+    this.particles.push(particle);
+  }
 }

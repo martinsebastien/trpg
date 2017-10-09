@@ -13,13 +13,14 @@ page-login {
 
     .container-login {
         width: 200px;
-        background-color: rgb(40,40,50);
+        background-color: color($colors, dark);
         border-radius: 5px;
         margin: 0 auto;
         height: 150px;
         margin-top: calc((100vh - 150px) / 2);
         text-align: center;
         padding-top: 1px;
+        margin-bottom: 30px;
     }
 
     input {
@@ -28,7 +29,7 @@ page-login {
     }
 
     button {
-        background-image:linear-gradient(45deg, #FFF17F, #796AFF);
+        background-image:linear-gradient(45deg, color($colors, primary), color($colors, secondary));
         font-family: 'Work Sans', sans-serif;
         font-weight: 600;
         text-transform: uppercase;
@@ -49,11 +50,21 @@ page-login {
     }
 
     .logo {
-        width: 250px;
+        width: 190px;
         margin: 0 auto;
         margin-top: 30px;
         position: absolute;
         top: 0px;
-        left: calc((100vw - 250px) /2 );
+        left: calc((100vw - 190px) /2 );
+    }
+
+    .create-count {
+        color: color($colors, lightSilver);
+        text-align: center;
+        margin: 2px 0px 0px 0px;
+    }
+
+    .link-create-account {
+        color: color($colors, lightestSilver);
     }
 }

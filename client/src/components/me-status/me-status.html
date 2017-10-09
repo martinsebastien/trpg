@@ -1,0 +1,10 @@
+<div id="avatar-border">
+  <div id="avatar-container">
+    <img src="./assets/avatar.jpg" alt="avatar" id="avatar">
+  </div>
+</div>
+
+<div id="text-container">
+  <h1>{{this.userService.me.pseudo}}</h1>
+  <player-status [status]="this.userService.me.status"></player-status>
+</div>
